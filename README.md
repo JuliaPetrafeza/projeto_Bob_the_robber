@@ -10,7 +10,7 @@ O cenário e os elementos do jogo , como o próprio Bob, o guarda e os tesouros 
 
 ## 2.Fluxo de utilização esperado para o sistema
 
-1. Ao iniciar o programa, o usuário visualizará todos os andares de um prédio, é um visão simplificada, como se o e difício fosse cortado ao meio`
+1. Ao iniciar o programa, o usuário visualizará todos os andares de um prédio, é um visão simplificada, como se o e difício fosse cortado ao meio
 
 2. Sobre os componentes do mapa:
    - As paredes, que serão representadas por "#"
