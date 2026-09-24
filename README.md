@@ -23,3 +23,32 @@ O cenário e os elementos do jogo , como o próprio Bob, o guarda e os tesouros 
 
 
 ## 4.Estrutura de dados
+
+
+
+
+
+2. Representação inicial do sistema (o código abaixo é uma representação inicial de como o jogo poderá ser estruturado no CMD):
+
+   ```c
+   #include <stdio.h>
+   #include <stdlib.h>
+
+   int main(){
+
+    printf("========================================\n");
+    printf("          BOB THE ROBBER                \n");
+    printf("========================================\n\n");
+
+    printf("ANDAR 2########################\n");
+    printf("       #                      #\n");
+    printf("       #          $           #\n");
+    printf("       #----------------------#\n");
+    printf("ANDAR 1#                      #\n");
+    printf("       #                      #\n");
+    printf("       #   B              G   #\n");
+    printf("       #                    S #\n");
+    printf("       ########################\n");
+
+   return 0;
+   }
