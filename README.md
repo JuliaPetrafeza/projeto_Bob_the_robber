@@ -24,6 +24,7 @@ O cenário e os elementos do jogo , como o próprio Bob, o guarda e os tesouros 
 
 ## 4.Estrutura de dados
 
+1. Estrutura de dados inical
 
 
 
