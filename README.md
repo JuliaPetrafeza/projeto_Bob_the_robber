@@ -26,6 +26,7 @@ O cenário e os elementos do jogo , como o próprio Bob, o guarda e os tesouros 
 
 1. Estrutura de dados inical
 
+   ```c
    //Posição Bob
    int bob_x;
    int bob_andar;
