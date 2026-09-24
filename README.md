@@ -26,10 +26,33 @@ O cenário e os elementos do jogo , como o próprio Bob, o guarda e os tesouros 
 
 1. Estrutura de dados inical
 
+   //Posição Bob
+   int bob_x;
+   int bob_andar;
+
+   //Posição Guarda
+   int guarda_x;
+   int guarda_andar;
+
+   //Posição dinheiro
+   int dinheiro_x;
+   int dinheiro_andar;
+
+   //Posição saída
+   int saida_x;
+   int saida_andar;
+
+   //Estado do jogo
+   int dinheiro_coletado;
+   int jogo_ativo;
+
+   //Comando jogador
+   char comando;
 
 
 
-2. Representação inicial do sistema (o código abaixo é uma representação inicial de como o jogo poderá ser estruturado no CMD):
+
+3. Representação inicial do sistema (o código abaixo é uma representação inicial de como o jogo poderá ser estruturado no CMD):
 
    ```c
    #include <stdio.h>
