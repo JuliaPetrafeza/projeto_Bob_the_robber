@@ -50,6 +50,76 @@ O cenário e os elementos do jogo , como o próprio Bob, o guarda e os tesouros 
    //Comando jogador
    char comando;
 
+   if (comando == 'd') {
+      bob_x++;
+   }
+   
+   else if (comando == 'a') {
+      bob_x--;
+   }
+   
+   else if (comando == 'w') {
+      bob_andar++;
+   }
+   
+   else if (comando == 's') {
+      bob_andar--;
+   }
+   
+   //limites do cenário
+   
+   //limite horizontal
+   if (bob_x < 1) {
+      bob_x = 1;
+   }
+   
+   else if (bob_x > 50) {
+      bob_x = 50;
+   }
+   
+   //limite vertical
+   if (bob_andar < 1) {
+      bob_andar = 1;
+   }
+   
+   else if (bob_andar > 2) {
+      bob_andar = 2;
+   }
+   
+   //coleta do dinheiro
+   if (bob_x == dinheiro_x && bob_andar == dinheiro_andar) {
+      dinheiro_coletado = 1;
+   }
+   
+   else {
+      dinheiro_coletado = 0;
+   }
+   
+   //movimentação do guarda
+   if (guarda_x < 50) {
+      guarda_x++;
+   }
+   
+   else if (guarda_x >= 50) {
+      guarda_x--;
+   }
+   
+   //guarda encontrar o Bob
+   if (bob_x == guarda_x && bob_andar == guarda_andar) {
+      jogo_ativo = 0;
+      printf("Bob foi capturado pelo guarda!\n");
+   }
+   
+   else {
+      jogo_ativo = 1;
+   }
+   
+   //condição de vitória
+   if (dinheiro_coletado == 1 && bob_x == saida_x && bob_andar == saida_andar) {
+      jogo_ativo = 0;
+   
+   printf("Bob conseguiu escapar!\n");
+   }
 
 
 
