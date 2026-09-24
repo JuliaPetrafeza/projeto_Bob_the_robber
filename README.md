@@ -8,10 +8,28 @@ O cenário e os elementos do jogo , como o próprio Bob, o guarda e os tesouros 
 
 
 
-
-
 ## 2.Fluxo de utilização esperado para o sistema
 
+1. Ao iniciar o programa, o usuário visualizará todos os andares de um prédio, é um visão simplificada, como se o e difício fosse cortado ao meio`
+
+2. Sobre os componentes do mapa:
+   - As paredes, que serão representadas por "#"
+   - O personagem Bob, representado pela letra "B"
+   - O guarda, representado pela letra "G"
+   - A saída, representada pela letra "S"
+   - O dinheiro, representado por "$"
+   - Haverá 2 adares e será posicionado um caractere representando o dinheiro dentro do mapa
+
+3. O usuário poderá controlar o personagem por meio de comandos inseridos pelo teclado. Cada tecla realizará uma ação específica no jogo:
+
+   - A → movimenta Bob para a esquerda;
+   - D → movimenta Bob para a direita;
+   - W → faz Bob subir para o andar superior;
+   - S → faz Bob descer para o andar inferior
+     
+4. Se o guarda e o Bob se encontrarem o jogoo acaba, ou se o Bob chegar à saída com o dinheiro o jogo também acaba
+
+5. Não é possivel atravessar as paredes, não existe um limite de tempo e só é possivel um movimento por vez
 
 
 
