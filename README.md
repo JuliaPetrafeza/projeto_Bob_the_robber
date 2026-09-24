@@ -18,6 +18,7 @@ O cenário e os elementos do jogo , como o próprio Bob, o guarda e os tesouros 
 
 ## 3.Fluxograma da lógica do sistema
 
+[Fluxograma](https://drive.google.com/file/d/1aFcGseEMWyP4mLJdGP-KYJg86lIVWs_0/view?usp=sharing)
 
 
 
