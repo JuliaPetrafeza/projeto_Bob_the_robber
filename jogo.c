@@ -27,5 +27,65 @@ int main() {
 
     int i, j, k;
 
+    int dificuldade;
+
+    srand(time(NULL));
+    printf("================================\n");
+    printf("        BOB THE ROBBER\n");
+    printf("================================\n");
+
+    printf("\n             BEM-VINDO!\n\n");
+    printf("Ajude Bob a coletar todo o dinheiro e encontrar\n");
+    printf("a saida sem ser capturado pelos guardas.\n");
+
+    printf("\n--------------- REGRAS ---------------------\n");
+    printf("1. Colete todos os dinheiros da fase.\n");
+    printf("2. Encontre a saida para concluir a fase.\n");
+    printf("3. Nao deixe os guardas capturarem Bob.\n");
+    printf("4. Complete as 3 fases para vencer o jogo.\n");
+
+    printf("\n-------------- CONTROLES ------------------\n");
+    printf("W - Subir\n");
+    printf("S - Descer\n");
+    printf("A - Esquerda\n");
+    printf("D - Direita\n");
+    printf("X - Sair do jogo\n");
+
+    printf("\n--------------- LEGENDA -------------------\n");
+    printf("B = Bob (jogador)\n");
+    printf("G = Guarda\n");
+    printf("$ = Dinheiro\n");
+    printf("S = Saida\n");
+    printf("# = Parede\n");
+
+    printf("\n============================================\n");
+    printf("       BOA SORTE E BOM JOGO, BOB!           \n");
+    printf("============================================\n");
+
+    system("pause");
+
+    system("cls");
+
+    printf("================================\n");
+    printf("       BOB THE ROBBER\n");
+    printf("================================\n");
+
+    printf("\nEscolha a dificuldade:\n");
+    printf("1 - Facil\n");
+    printf("2 - Medio\n");
+    printf("3 - Dificil\n");
+
+    printf("\nOpcao: ");
+    scanf("%d", &dificuldade);
+
+    if (dificuldade == 1) {
+        tentativas = 1;
+    }
+    else if (dificuldade == 2) {
+        tentativas = 2;
+    }
+    else {
+        tentativas = 3;
+    }
     return 0;
 }
