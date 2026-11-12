@@ -28,6 +28,8 @@ int main() {
     int i, j, k;
 
     int dificuldade;
+    int quantidade;
+    int fase_concluida;
 
     srand(time(NULL));
     printf("================================\n");
@@ -93,5 +95,30 @@ int main() {
     else {
         tentativas = 3;
     }
+
+    for (fase = 0; fase < 3 && jogo_ativo == 1; fase++) {
+
+        quantidade = fase + 1;
+        fase_concluida = 0;
+
+        bob_x = 2;
+        bob_andar = 4;
+
+        for (i = 0; i < quantidade; i++) {
+            dinheiro_coletado[i] = 0;
+        }
+
+        for (i = 0; i < 5; i++) {
+            for (j = 0; j < 30; j++) {
+
+                if (j == 0 || j == 29) {
+                    mapa[i][j] = '#';
+                }
+                else {
+                    mapa[i][j] = ' ';
+                }
+            }
+        }
+    
     return 0;
 }
