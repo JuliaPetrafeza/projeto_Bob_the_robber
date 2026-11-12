@@ -78,6 +78,12 @@ int main() {
     printf("\nOpcao: ");
     scanf("%d", &dificuldade);
 
+    while (dificuldade < 1 || dificuldade > 3){
+        printf("\nOpcao invalida!");
+        printf("Opcao: ");
+        scanf("%d", &dificuldade);
+    }
+
     if (dificuldade == 1) {
         tentativas = 1;
     }
