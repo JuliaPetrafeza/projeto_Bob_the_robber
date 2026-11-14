@@ -30,6 +30,8 @@ int main() {
     int dificuldade;
     int quantidade;
     int fase_concluida;
+    int bob_moveu;
+    int encontrou;
 
     srand(time(NULL));
     printf("================================\n");
@@ -119,6 +121,96 @@ int main() {
                 }
             }
         }
+
+      while (jogo_ativo == 1 && fase_concluida == 0) {
+
+            system("cls");
+
+            printf("================================\n");
+            printf("        BOB THE ROBBER\n");
+            printf("             FASE %d\n", fase + 1);
+            printf("================================\n");
+
+            for (i = 0; i < 5; i++) {
+
+                printf("ANDAR %d ", 5 - i);
+
+                for (j = 0; j < 30; j++) {
+
+                    if (bob_andar == i && bob_x == j) {
+                        printf("B");
+                    }
+                    else {
+
+                        encontrou = 0;
+
+                        for (k = 0; k < quantidade; k++) {
+
+                            if (guarda_andar[k] == i &&
+                                guarda_x[k] == j) {
+
+                                printf("G");
+                                encontrou = 1;
+                                break;
+                            }
+                        }
+
+                        if (encontrou == 0) {
+
+                            for (k = 0; k < quantidade; k++) {
+
+                                if (dinheiro_coletado[k] == 0 &&
+                                    dinheiro_andar[k] == i &&
+                                    dinheiro_x[k] == j) {
+
+                                    printf("$");
+                                    encontrou = 1;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (encontrou == 0) {
+
+                            if (saida_andar == i && saida_x == j) {
+                                printf("S");
+                                encontrou = 1;
+                            }
+                        }
+
+                        if (encontrou == 0) {
+                            printf("%c", mapa[i][j]);
+                        }
+                    }
+                }
+
+                printf("\n");
+            }
+
+            printf("\nDinheiro: ");
+
+            for (i = 0; i < quantidade; i++) {
+
+                if (dinheiro_coletado[i] == 1) {
+                    printf("[X] ");
+                }
+                else {
+                    printf("[ ] ");
+                }
+            }
+
+            printf("\n");
+
+            printf("\nW = subir | S = descer");
+            printf("\nA = esquerda | D = direita");
+            printf("\nX = sair do jogo");
+
+            printf("\n\nMovimento: ");
+            scanf(" %c", &comando);
+
+            comando = tolower(comando);
+
+            bob_moveu = 0;
     
     return 0;
 }
