@@ -211,6 +211,45 @@ int main() {
             comando = tolower(comando);
 
             bob_moveu = 0;
+
+            if (comando == 'a') {
+                novo_x = bob_x - 1;
+                novo_andar = bob_andar;
+                bob_moveu = 1;
+            }
+            else if (comando == 'd') {
+                novo_x = bob_x + 1;
+                novo_andar = bob_andar;
+                bob_moveu = 1;
+            }
+            else if (comando == 'w') {
+                novo_x = bob_x;
+                novo_andar = bob_andar - 1;
+                bob_moveu = 1;
+            }
+            else if (comando == 's') {
+                novo_x = bob_x;
+                novo_andar = bob_andar + 1;
+                bob_moveu = 1;
+            }
+            else if (comando == 'x') {
+                jogo_ativo = 0;
+            }
+            else {
+                bob_moveu = 0;
+            }
+
+            if (bob_moveu == 1) {
+
+                if (novo_x >= 1 && novo_x <= 28 &&
+                    novo_andar >= 0 && novo_andar <= 4) {
+
+                    if (mapa[novo_andar][novo_x] != '#') {
+                        bob_x = novo_x;
+                        bob_andar = novo_andar;
+                    }
+                }
+            }
     
     return 0;
 }
