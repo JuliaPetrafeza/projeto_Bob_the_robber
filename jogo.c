@@ -256,6 +256,39 @@ int main() {
                     }
                 }
             }
-    
+    for (i = 0; i < quantidade; i++) {
+
+                if (bob_x == guarda_x[i] &&
+                    bob_andar == guarda_andar[i]) {
+
+                    jogo_ativo = 0;
+                }
+            }
+
+            for (i = 0; i < quantidade; i++) {
+
+                if (bob_x == dinheiro_x[i] &&
+                    bob_andar == dinheiro_andar[i] &&
+                    dinheiro_coletado[i] == 0) {
+
+                    dinheiro_coletado[i] = 1;
+                }
+            }
+
+            todos_dinheiros = 1;
+
+            for (i = 0; i < quantidade; i++) {
+
+                if (dinheiro_coletado[i] == 0) {
+                    todos_dinheiros = 0;
+                }
+            }
+
+            if (bob_x == saida_x &&
+                bob_andar == saida_andar &&
+                todos_dinheiros == 1) {
+
+                fase_concluida = 1;
+            }
     return 0;
 }
