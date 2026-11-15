@@ -102,6 +102,7 @@ int main() {
     system("pause");
 
     system("cls");
+    tentativas = escolherDificuldade(); 
 
     for (fase = 0; fase < 3 && jogo_ativo == 1; fase++) {
 
