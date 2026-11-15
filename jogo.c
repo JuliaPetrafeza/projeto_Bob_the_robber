@@ -3,6 +3,39 @@
 #include <ctype.h>
 #include <time.h>
 
+int escolherDificuldade() {
+
+    int dificuldade;
+
+    printf("================================\n");
+    printf("       BOB THE ROBBER\n");
+    printf("================================\n");
+
+    printf("\nEscolha a dificuldade:\n");
+    printf("1 - Facil\n");
+    printf("2 - Medio\n");
+    printf("3 - Dificil\n");
+
+    printf("\nOpcao: ");
+    scanf("%d", &dificuldade);
+
+    while (dificuldade < 1 || dificuldade > 3) {
+        printf("\nOpcao invalida!");
+        printf("\nOpcao: ");
+        scanf("%d", &dificuldade);
+    }
+
+    if (dificuldade == 1) {
+        return 1;
+    }
+    else if (dificuldade == 2) {
+        return 2;
+    }
+    else {
+        return 3;
+    }
+}
+
 int main() {
 
     char mapa[5][30];
@@ -69,34 +102,6 @@ int main() {
     system("pause");
 
     system("cls");
-
-    printf("================================\n");
-    printf("       BOB THE ROBBER\n");
-    printf("================================\n");
-
-    printf("\nEscolha a dificuldade:\n");
-    printf("1 - Facil\n");
-    printf("2 - Medio\n");
-    printf("3 - Dificil\n");
-
-    printf("\nOpcao: ");
-    scanf("%d", &dificuldade);
-
-    while (dificuldade < 1 || dificuldade > 3){
-        printf("\nOpcao invalida!");
-        printf("Opcao: ");
-        scanf("%d", &dificuldade);
-    }
-
-    if (dificuldade == 1) {
-        tentativas = 1;
-    }
-    else if (dificuldade == 2) {
-        tentativas = 2;
-    }
-    else {
-        tentativas = 3;
-    }
 
     for (fase = 0; fase < 3 && jogo_ativo == 1; fase++) {
 
