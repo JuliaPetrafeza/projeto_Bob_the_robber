@@ -290,5 +290,46 @@ int main() {
 
                 fase_concluida = 1;
             }
+if (bob_moveu == 1 && jogo_ativo == 1 &&
+                fase_concluida == 0) {
+
+                for (i = 0; i < quantidade; i++) {
+
+                    for (k = 0; k < tentativas; k++) {
+
+                        novo_x = guarda_x[i];
+                        novo_andar = guarda_andar[i];
+
+                        movimento = rand() % 4;
+
+                        if (movimento == 0) {
+                            novo_x--;
+                        }
+                        else if (movimento == 1) {
+                            novo_x++;
+                        }
+                        else if (movimento == 2) {
+                            novo_andar--;
+                        }
+                        else {
+                            novo_andar++;
+                        }
+
+                        if (novo_x >= 1 && novo_x <= 28 &&
+                            novo_andar >= 0 && novo_andar <= 4) {
+
+                            guarda_x[i] = novo_x;
+                            guarda_andar[i] = novo_andar;
+                        }
+                    }
+
+                    if (bob_x == guarda_x[i] &&
+                        bob_andar == guarda_andar[i]) {
+
+                        jogo_ativo = 0;
+                    }
+                }
+            }
+        }
     return 0;
 }
