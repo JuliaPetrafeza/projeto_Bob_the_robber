@@ -3,6 +3,21 @@
 #include <ctype.h>
 #include <time.h>
 
+void mensagemFase() {
+
+    int mensagem = rand() % 3;
+
+    if (mensagem == 0) {
+        printf("\nMuito bem! Bob esta ficando rico!");
+    }
+    else if (mensagem == 1) {
+        printf("\nMandou bem! Os guardas nao conseguiram pegar Bob!");
+    }
+    else {
+        printf("\nMais uma fase concluida! Bob esta quase livre!");
+    }
+}
+
 int escolherDificuldade() {
 
     int dificuldade;
