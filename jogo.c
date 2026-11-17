@@ -80,6 +80,11 @@ int main() {
     int fase_concluida;
     int bob_moveu;
     int encontrou;
+    int tentativas;
+    int fase;
+    int novo_x;
+    int novo_andar;
+    int todos_dinheiros;
 
     srand(time(NULL));
     printf("================================\n");
@@ -377,5 +382,5 @@ if (bob_moveu == 1 && jogo_ativo == 1 &&
 
     return 0;
 }
-    return 0;
-}
+    
+
