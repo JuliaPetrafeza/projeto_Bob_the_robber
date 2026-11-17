@@ -331,5 +331,36 @@ if (bob_moveu == 1 && jogo_ativo == 1 &&
                 }
             }
         }
+       if (jogo_ativo == 1 && fase_concluida == 1) {
+
+            system("cls");
+
+            printf("================================\n");
+            printf("       FASE %d CONCLUIDA!\n", fase + 1);
+            printf("================================\n");
+
+            if (fase < 2) {
+                system("pause");
+            }
+        }
+    }
+
+    system("cls");
+
+    if (jogo_ativo == 0) {
+        printf("\n================================\n");
+        printf("            GAME OVER\n");
+        printf("================================\n");
+    }
+    else {
+        printf("\n================================\n");
+        printf("       PARABENS! VOCE VENCEU!\n");
+        printf("================================\n");
+    }
+
+    system("pause");
+
+    return 0;
+}
     return 0;
 }
