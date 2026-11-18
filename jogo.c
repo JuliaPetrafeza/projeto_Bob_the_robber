@@ -19,28 +19,35 @@ void mensagemFase() {
 }
 
 int escolherDificuldade() {
+
     int dificuldade;
 
-    while (1) {
-        printf("================================\n");
-        printf("BOB THE ROBBER\n");
-        printf("================================\n");
-        printf("\nEscolha a dificuldade:\n");
-        printf("1 - Facil\n");
-        printf("2 - Medio\n");
-        printf("3 - Dificil\n");
+    printf("================================\n");
+    printf("       BOB THE ROBBER\n");
+    printf("================================\n");
+
+    printf("\nEscolha a dificuldade:\n");
+    printf("1 - Facil\n");
+    printf("2 - Medio\n");
+    printf("3 - Dificil\n");
+
+    printf("\nOpcao: ");
+    scanf("%d", &dificuldade);
+
+    while (dificuldade < 1 || dificuldade > 3) {
+        printf("\nOpcao invalida!");
         printf("\nOpcao: ");
+        scanf("%d", &dificuldade);
+    }
 
-        if (scanf("%d", &dificuldade) == 1) {
-            if (dificuldade >= 1 && dificuldade <= 3) {
-                return dificuldade;
-            }
-        } else {
-            int c;
-            while ((c = getchar()) != '\n' && c != EOF) {}
-        }
-
-        printf("\nOpcao invalida!\n\n");
+    if (dificuldade == 1) {
+        return 1;
+    }
+    else if (dificuldade == 2) {
+        return 2;
+    }
+    else {
+        return 3;
     }
 }
 
