@@ -86,6 +86,18 @@ int main() {
     int novo_andar;
     int todos_dinheiros;
 
+    int menu;
+    char resposta;
+    
+    int vidas = 2;
+    int chave_x = 5;
+    int chave_andar = 2;
+    int chave_coletada = 0;
+    int chaves_coletadas = 0;
+    
+    int pontos_bau;
+    int pontuacao_total = 0;
+
     srand(time(NULL));
     printf("================================\n");
     printf("        BOB THE ROBBER\n");
@@ -131,6 +143,8 @@ int main() {
 
         bob_x = 2;
         bob_andar = 4;
+
+        chave_coletada = 0;
 
         for (i = 0; i < quantidade; i++) {
             dinheiro_coletado[i] = 0;
@@ -195,7 +209,16 @@ int main() {
                                 }
                             }
                         }
-
+                        if (encontrou == 0) {
+                        
+                            if (chave_coletada == 0 &&
+                                chave_andar == i &&
+                                chave_x == j) {
+                        
+                                printf("K");
+                                encontrou = 1;
+                            }
+                        }
                         if (encontrou == 0) {
 
                             if (saida_andar == i && saida_x == j) {
@@ -224,6 +247,15 @@ int main() {
                     printf("[ ] ");
                 }
             }
+
+            if (chave_coletada == 1) {
+                printf("\nChave: [X]");
+            }
+            else {
+                printf("\nChave: [ ]");
+            }
+
+            printf("\nVidas: %d", vidas);
 
             printf("\n");
 
@@ -276,81 +308,141 @@ int main() {
                     }
                 }
             }
-    for (i = 0; i < quantidade; i++) {
-
+          
+            for (i = 0; i < quantidade; i++) {
+        
                 if (bob_x == guarda_x[i] &&
                     bob_andar == guarda_andar[i]) {
-
-                    jogo_ativo = 0;
+            
+                    vidas--;
+            
+                    if (vidas == 0) {
+                        jogo_ativo = 0;
+                    }
+                    else {
+                        bob_x = 2;
+                        bob_andar = 4;
+                        bob_moveu = 0;
+                    }
+            
+                    break;
                 }
             }
 
-            for (i = 0; i < quantidade; i++) {
-
-                if (bob_x == dinheiro_x[i] &&
-                    bob_andar == dinheiro_andar[i] &&
-                    dinheiro_coletado[i] == 0) {
-
-                    dinheiro_coletado[i] = 1;
-                }
-            }
-
-            todos_dinheiros = 1;
-
-            for (i = 0; i < quantidade; i++) {
-
-                if (dinheiro_coletado[i] == 0) {
-                    todos_dinheiros = 0;
-                }
-            }
-
-            if (bob_x == saida_x &&
-                bob_andar == saida_andar &&
-                todos_dinheiros == 1) {
-
-                fase_concluida = 1;
-            }
-if (bob_moveu == 1 && jogo_ativo == 1 &&
-                fase_concluida == 0) {
-
+            if (jogo_ativo == 1) {
+            
                 for (i = 0; i < quantidade; i++) {
+            
+                    if (bob_x == dinheiro_x[i] &&
+                        bob_andar == dinheiro_andar[i] &&
+                        dinheiro_coletado[i] == 0) {
+            
+                        dinheiro_coletado[i] = 1;
+                    }
+                }
+            
+                if (bob_x == chave_x &&
+                    bob_andar == chave_andar &&
+                    chave_coletada == 0) {
+            
+                    chave_coletada = 1;
+                    chaves_coletadas++;
+                }
 
-                    for (k = 0; k < tentativas; k++) {
-
-                        novo_x = guarda_x[i];
-                        novo_andar = guarda_andar[i];
-
-                        movimento = rand() % 4;
-
-                        if (movimento == 0) {
-                            novo_x--;
+                todos_dinheiros = 1;
+            
+                for (i = 0; i < quantidade; i++) {
+            
+                    if (dinheiro_coletado[i] == 0) {
+                        todos_dinheiros = 0;
+                    }
+                }
+            
+                if (bob_x == saida_x &&
+                    bob_andar == saida_andar &&
+                    todos_dinheiros == 1) {
+            
+                    fase_concluida = 1;
+                }
+            }          
+       
+    if (bob_moveu == 1 && jogo_ativo == 1 &&
+        fase_concluida == 0) {
+    
+        for (i = 0; i < quantidade; i++) {
+    
+            for (k = 0; k < tentativas; k++) {
+    
+                novo_x = guarda_x[i];
+                novo_andar = guarda_andar[i];
+    
+                movimento = rand() % 4;
+    
+                if (movimento == 0) {
+                    novo_x--;
+                }
+                else if (movimento == 1) {
+                    novo_x++;
+                }
+                else if (movimento == 2) {
+                    novo_andar--;
+                }
+                else {
+                    novo_andar++;
+                }
+    
+                if (novo_x >= 1 && novo_x <= 28 &&
+                    novo_andar >= 0 && novo_andar <= 4) {
+    
+                    encontrou = 0;
+    
+                    for (j = 0; j < quantidade; j++) {
+                        if (novo_x == dinheiro_x[j] &&
+                            novo_andar == dinheiro_andar[j]) {
+    
+                            encontrou = 1;
                         }
-                        else if (movimento == 1) {
-                            novo_x++;
-                        }
-                        else if (movimento == 2) {
-                            novo_andar--;
-                        }
-                        else {
-                            novo_andar++;
-                        }
-
-                        if (novo_x >= 1 && novo_x <= 28 &&
-                            novo_andar >= 0 && novo_andar <= 4) {
-
+                    }
+                    
+                    if (novo_x == chave_x &&
+                        novo_andar == chave_andar) {
+                    
+                        encontrou = 1;
+                    }
+    
+                    if (novo_x != saida_x ||
+                        novo_andar != saida_andar) {
+    
+                        if (encontrou == 0) {
                             guarda_x[i] = novo_x;
                             guarda_andar[i] = novo_andar;
                         }
                     }
-
-                    if (bob_x == guarda_x[i] &&
-                        bob_andar == guarda_andar[i]) {
-
-                        jogo_ativo = 0;
-                    }
                 }
             }
         }
+    
+        for (i = 0; i < quantidade; i++) {
+    
+            if (bob_x == guarda_x[i] &&
+                bob_andar == guarda_andar[i]) {
+    
+                vidas--;
+    
+                if (vidas == 0) {
+                    jogo_ativo = 0;
+                }
+                else {
+                    bob_x = 2;
+                    bob_andar = 4;
+                    bob_moveu = 0;
+                }
+    
+                break;
+            }
+        }
+    }
+          
        if (jogo_ativo == 1 && fase_concluida == 1) {
 
             system("cls");
@@ -359,6 +451,8 @@ if (bob_moveu == 1 && jogo_ativo == 1 &&
             printf("       FASE %d CONCLUIDA!\n", fase + 1);
             printf("================================\n");
 
+           mensagemFase();
+           
             if (fase < 2) {
                 system("pause");
             }
@@ -376,11 +470,45 @@ if (bob_moveu == 1 && jogo_ativo == 1 &&
         printf("\n================================\n");
         printf("       PARABENS! VOCE VENCEU!\n");
         printf("================================\n");
+
+        if (chaves_coletadas > 0) {
+        
+            printf("\nVoce coletou %d chave(s) e ganhou %d bau(s)!\n",
+                   chaves_coletadas, chaves_coletadas);
+        
+            while (getchar() != '\n');
+        
+            for (i = 0; i < chaves_coletadas; i++) {
+        
+                printf("\n================================\n");
+                printf("              BAU %d\n", i + 1);
+                printf("================================\n");
+        
+                printf("Pressione ENTER para abrir este bau...");
+                getchar();
+        
+                pontos_bau = rand() % 401 + 100;
+                pontuacao_total = pontuacao_total + pontos_bau;
+        
+                printf("\nVoce encontrou %d pontos neste bau!\n", pontos_bau);
+
+                system("pause");
+                system("cls");
+            }
+                printf("\n================================\n");
+                printf("          RELATORIO FINAL\n");
+                printf("================================\n");
+                printf("Baus abertos: %d\n", chaves_coletadas);
+                printf("--------------------------------\n");
+                printf("TOTAL DE PONTOS: %d\n", pontuacao_total);
+        }
+        else {
+            printf("\nVoce terminou sem coletar nenhuma chave.\n");
+            printf("Por isso, nao ganhou bau nesta partida.\n");
+        }
     }
 
     system("pause");
 
     return 0;
 }
-    
-
