@@ -190,8 +190,13 @@ printf("\n             BEM-VINDO!\n\n");
                 scanf("%d", &menu);
                 system("cls");
                 escolha(menu);
+                if(menu != 4){
                 printf("\nDeseja voltar ao menu? (s/n): ");
                 scanf(" %c", &resposta);
+                }
+                else{
+                    resposta = 'n';
+                }
         }
         system("cls");
         inicio();
