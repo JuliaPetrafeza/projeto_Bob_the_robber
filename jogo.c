@@ -3,6 +3,62 @@
 #include <ctype.h>
 #include <time.h>
 
+void regra(){
+
+    printf("\n--------------- REGRAS ---------------------\n");
+    printf("1. Colete todo o dinheiro de cada fase.\n");
+    printf("2. Encontre a saida para concluir a fase.\n");
+    printf("3. Nao deixe os guardas capturarem Bob.\n");
+    printf("4. Bob possui 2 vidas durante toda a partida.\n");
+    printf("5. As chaves sao opcionais e permitem abrir baus.\n");
+    printf("6. Cada bau concede uma quantidade aleatoria de pontos.\n");
+    printf("7. Complete as 3 fases para vencer o jogo.\n");
+}
+
+void controle(){
+
+    printf("\n-------------- CONTROLES ------------------\n");
+    printf("W - Subir\n");
+    printf("S - Descer\n");
+    printf("A - Esquerda\n");
+    printf("D - Direita\n");
+    printf("X - Sair do jogo\n");
+}
+
+void legenda(){
+
+    printf("\n--------------- LEGENDA -------------------\n");
+    printf("B = Bob (jogador)\n");
+    printf("G = Guarda\n");
+    printf("$ = Dinheiro\n");
+    printf("K = Chave\n");
+    printf("S = Saida\n");
+    printf("# = Parede\n");
+}
+
+void inicio(){
+
+    printf("\n============================================\n");
+    printf("       BOA SORTE E BOM JOGO, BOB!           \n");
+    printf("============================================\n");
+}
+
+void escolha(int menu){
+
+    if(menu == 1){
+        regra();
+    }
+    else if(menu == 2){
+        controle();
+    }
+    else if(menu == 3){
+        legenda();
+    }
+    else if(menu == 4){
+        inicio();
+    }
+}
+
 void mensagemFase() {
 
     int mensagem = rand() % 3;
@@ -103,33 +159,43 @@ int main() {
     printf("        BOB THE ROBBER\n");
     printf("================================\n");
 
-    printf("\n             BEM-VINDO!\n\n");
+printf("\n             BEM-VINDO!\n\n");
     printf("Ajude Bob a coletar todo o dinheiro e encontrar\n");
     printf("a saida sem ser capturado pelos guardas.\n");
 
-    printf("\n--------------- REGRAS ---------------------\n");
-    printf("1. Colete todos os dinheiros da fase.\n");
-    printf("2. Encontre a saida para concluir a fase.\n");
-    printf("3. Nao deixe os guardas capturarem Bob.\n");
-    printf("4. Complete as 3 fases para vencer o jogo.\n");
+    printf("\n1- Regras \n");
+    printf("\n2- Controles \n");
+    printf("\n3- Legenda \n");
+    printf("\n4- Iniciar jogo\n");
 
-    printf("\n-------------- CONTROLES ------------------\n");
-    printf("W - Subir\n");
-    printf("S - Descer\n");
-    printf("A - Esquerda\n");
-    printf("D - Direita\n");
-    printf("X - Sair do jogo\n");
+    printf("\nOpcao: ");
+    scanf("%d", &menu);
 
-    printf("\n--------------- LEGENDA -------------------\n");
-    printf("B = Bob (jogador)\n");
-    printf("G = Guarda\n");
-    printf("$ = Dinheiro\n");
-    printf("S = Saida\n");
-    printf("# = Parede\n");
+    system("cls");
 
-    printf("\n============================================\n");
-    printf("       BOA SORTE E BOM JOGO, BOB!           \n");
-    printf("============================================\n");
+    escolha(menu);
+
+    if(menu != 4){
+        printf("\nDeseja voltar ao menu? (s/n): ");
+        scanf(" %c", &resposta);
+
+        while(resposta == 's'){
+                system("cls");
+                printf("\nMENU\n");
+                printf("\n1- Regras \n");
+                printf("\n2- Controles \n");
+                printf("\n3- Legenda \n");
+                printf("\n4- Iniciar jogo\n");
+                printf("\nOpcao: ");
+                scanf("%d", &menu);
+                system("cls");
+                escolha(menu);
+                printf("\nDeseja voltar ao menu? (s/n): ");
+                scanf(" %c", &resposta);
+        }
+        system("cls");
+        inicio();
+    }
 
     system("pause");
 
